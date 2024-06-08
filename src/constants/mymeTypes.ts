@@ -1,0 +1,1 @@
+export const MYMETYPES=["image/png", "image/jpg","image/jpeg"]
