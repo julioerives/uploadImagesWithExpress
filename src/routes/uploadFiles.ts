@@ -10,12 +10,10 @@ const appMulter= multer({
     filename:(req,file,cb)=>{
         const fileExtension = file.originalname.split('.')
         const fileName = fileExtension[0];
-       
         cb(null,`${fileName}-${Date.now()}.${fileExtension[1]}`)
     }
     }),
     fileFilter:(req,file,cb)=>{
-        console.log(file.mimetype)
        if( MYMETYPES.includes(file.mimetype)) cb(null,true);
        else cb(new Error("Archivo no permitido"));
     },
@@ -24,4 +22,5 @@ const appMulter= multer({
     }
 })
 router.post("/upload",appMulter.single('file'), uploadFiles.uploadFile)
+router.get("/getImages",uploadFiles.getAllImages)
 export default router

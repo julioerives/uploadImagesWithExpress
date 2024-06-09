@@ -1,0 +1,10 @@
+create database uploadImages;
+use uploadImages;
+
+create table images(
+id int primary key auto_increment,
+ruta varchar(100) not null,
+tipo varchar(100) not null,
+nombre varchar(100) not null
+)
+select * from images
